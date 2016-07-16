@@ -1,0 +1,9 @@
+base
+NLP
+tm
+proto
+gsubfn
+DBI
+RSQLite
+sqldf
+ggplot2

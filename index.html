@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Prediction With R</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Text Prediction With R">
+  <meta name="author" content="Gilbert Maerina">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Text Prediction With R</h1>
+    <h2>Capstone Project</h2>
+    <p>Gilbert Maerina<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Algorithm</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>We&#39;ll be using probabilistic models built on sequences of text of lengths -N- (n-grams).</h1>
+
+<h1>Using conglomerate of data to capture varying representations of text combinations</h1>
+
+<ul>
+<li>Data from US News, US Blogs, and Twitter</li>
+<li>102 million words</li>
+<li>4.27 million lines</li>
+</ul>
+
+<h1>Resulting 3 tables of 2-gram (bigram), 3-gram (trigram), and 4-gram (quadgram)</h1>
+
+<ul>
+<li>65823672 bigrams detected</li>
+<li>62508808 trigrams detected</li>
+<li>59294385 quadgrams detected</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Algorithm (cont...)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="800px" height="300px" /></p>
+
+<ul>
+<li>High frequency valued n-grams can be found in third quantile.</li>
+<li>System used the third quantile of data to build the lookup tables</li>
+<li>Shorter lookup tables, faster performance</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Implementation</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>User interface incorporated into shiny</h1>
+
+<h1>Takes a brief moment to load libraries</h1>
+
+<h1>As User types, predictions are calculated and displayed in a table sorted by frequency</h1>
+
+<h1>Table of values can be searched or sorted to User&#39;s liking</h1>
+
+<p><img src="TextPredictionApplication.PNG" alt="height"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Performance</h2>
+  </hgroup>
+  <article data-timings="">
+    <h1>Assume someone enters text on a mobile device at 40 WPM</h1>
+
+<ul>
+<li>1.5 words a second</li>
+</ul>
+
+<h1>Application takes average of 0.05 seconds (5 milliseconds) to return a list of words</h1>
+
+<ul>
+<li>List of ngram values done before deployment, lessens computation time</li>
+<li>Further refinement is possible by decreasing the quantity of values returned</li>
+</ul>
+
+<h1>Application can be modified to benefit other purposes where ngrams can be applied</h1>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <article data-timings="">
+    <p><br>
+<br>
+<br>
+<br>
+<center></p>
+
+<h2>THANK YOU</h2>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Algorithm'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Algorithm (cont...)'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Implementation'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Performance'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
